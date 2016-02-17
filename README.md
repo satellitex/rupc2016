@@ -49,12 +49,15 @@ git push を再度実行するとwarningが消えることが多い。
 
 
 
-**簡略化
+簡略化
 とりあいず
 
 $ git add .
+
 $ git commit -m 'message'
+
 $ git pull
+
 $ git push
 
 をやればok
