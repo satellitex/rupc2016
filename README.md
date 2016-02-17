@@ -7,6 +7,7 @@ github　アカウントを作ります。
 僕がメールを送ります。
 
 $ git config --global user.name "githubのユーザーネーム"
+
 $ git config --global user.email "gitubub"
 
 
