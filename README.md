@@ -47,3 +47,14 @@ $ git push
 git push のときに謎のwarningがでることがあるが、その時は 指示にしたがって適当にコマンドを実行したあと
 git push を再度実行するとwarningが消えることが多い。
 
+
+
+**簡略化
+とりあいず
+
+$ git add .
+$ git commit -m 'message'
+$ git pull
+$ git push
+
+をやればok
