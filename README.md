@@ -8,7 +8,10 @@ github　アカウントを作ります。
 
 $ git config --global user.name "githubのユーザーネーム"
 
-$ git config --global user.email "gitubub"
+$ git config --global user.email "gitububを登録したメールアドレス"
+
+を実行したあとに
+作業するディレクトに移動し
 
 
 $ git clone git@github.com:satellitex/rupc2016.git
