@@ -6,8 +6,8 @@
 using namespace std;
 
 #define MAX 300
-#define MAX_Y 1000
-#define OFFSET 500
+#define MAX_Y 2000
+#define OFFSET 1000
 
 int dp[2][MAX+1][MAX_Y];
 
@@ -30,23 +30,27 @@ int main()
 
     int res = 0;
     for (int i = 0; i < n; i++) {
-        for (int j = MAX; j >= 0; j--) {
-            for (int k = 2*MAX; k >= 0; k--) {
-                int ni = (i+1)%2;
-                int nk = k+OFFSET;
-                if (nk >= MAX_Y || dp[i%2][j][nk] == -1) {
+        for (int j = 0; j <= MAX; j++) {
+            for (int k = MAX_Y-1; k >= 0; k--) {
+                int ni = (i+1)%2, nk = k;
+                if (dp[i%2][j][nk] == -1) {
                     continue;
                 }
                 int cost = dp[i%2][j][nk];
+                
                 if (j-a[i] >= 0 && nk+b[i] < MAX_Y) {
                     chmax(dp[ni][j-a[i]][nk+b[i]], cost);
-                    chmax(res, dp[ni][j-a[i]][nk+b[i]]);                    
+                    if (nk+b[i] >= OFFSET) {
+                        chmax(res, dp[ni][j-a[i]][nk+b[i]]);                       
+                    }
                 }
                 nk -= c[i];
-                if (nk >= OFFSET) {
+                if (nk >= 0) {
                     cost += d[i];
                     chmax(dp[ni][j][nk], cost);
-                    chmax(res, dp[ni][j][nk]);
+                    if (nk >= OFFSET) {
+                        chmax(res, dp[ni][j][nk]);   
+                    }
                 }
             }
         }
