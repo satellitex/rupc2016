@@ -23,10 +23,7 @@ int main() {
               for(int l=0; l<k; l++) {swap(x,y);y=n-y-1;}
             }
           }
-          d+=i<3?i:1;
-          d+=j<3?j:1;
-          d+=k<3?k:1;
-          d+=abs(x-x2)+abs(y-y2)+abs(z-z2);
+          d+=abs(x-x2)+abs(y-y2)+abs(z-z2)+(i<3?i:1)+(j<3?j:1)+(k<3?k:1);
           ans=min(ans,d);
         } while(next_permutation(a,a+3));
       }
