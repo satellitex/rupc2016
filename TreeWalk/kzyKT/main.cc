@@ -7,11 +7,9 @@ int d[11111];
 void dfs(int x,int k) {
   d[x]=k;
   for(int i=0; i<v[x].size(); i++) {
-    int y=v[x][i];
-    if(d[y]==-1) dfs(y,k+1);
+    if(d[v[x][i]]==-1) dfs(v[x][i],k+1);
   }
 }
-
 bool check(int s, int t, int n) {return !d[s]&&(d[t]==n/2||d[t]==n-1)||d[s]==n/2-1&&(d[t]==n/2||d[t]==n-1);}
 
 int main() {
@@ -26,10 +24,7 @@ int main() {
   dfs(1,0);
   int M=-1,x,f=0;
   for(int i=1; i<=n; i++) {
-    if(d[i]>M) {
-      M=d[i];
-      x=i;
-    }
+    if(d[i]>M) M=d[i],x=i;
   }
   memset(d,-1,sizeof(d));
   dfs(x,0);
