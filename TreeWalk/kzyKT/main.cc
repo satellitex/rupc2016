@@ -12,9 +12,7 @@ void dfs(int x,int k) {
   }
 }
 
-bool check(int s, int t, int n) {
-  return !d[s]&&(d[t]==n/2||d[t]==n-1)||d[s]==n/2-1&&(d[t]==n/2||d[t]==n-1);
-}
+bool check(int s, int t, int n) {return !d[s]&&(d[t]==n/2||d[t]==n-1)||d[s]==n/2-1&&(d[t]==n/2||d[t]==n-1);}
 
 int main() {
   int n,s,t;
