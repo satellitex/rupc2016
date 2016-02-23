@@ -19,11 +19,13 @@ int main()
     int res = 0;
     for (int i = 1; i < n; i++) {
         min_times[i] = min(min_times[i], min_times[i-1] + 1);
-        res = max(res, min_times[i]);
     }
 
     for (int i = n-2; i >= 0; i--) {
         min_times[i] = min(min_times[i], min_times[i+1] + 1);
+    }
+
+    for (int i = 0; i < n; i++) {
         res = max(res, min_times[i]);
     }
     

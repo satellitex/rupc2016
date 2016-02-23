@@ -12,6 +12,9 @@ int solve(int l, int r, vector<int> &A)
 {
     if (l >= r) return 0;
     int &res = dp[l][r];
+    if (res != -1) {
+        return res;
+    }
     for (int i = l; i <= r-1; i += 2) {
         res = max(res, solve(l, i-1, A) + solve(i+2, r, A) + A[i]*A[i+1]);
     }
