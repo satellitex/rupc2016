@@ -13,6 +13,7 @@ int A[N_MAX];
 
 void input() {
   N = inf.readInt(N_MIN, N_MAX, "N");
+  // N は 2 の倍数
   ensuref(N % 2 == 0, "Input 'N' must be even");
   inf.readEoln();
 
