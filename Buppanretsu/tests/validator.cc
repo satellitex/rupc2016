@@ -7,22 +7,19 @@ const int W_MAX = 100;
 const int H_MIN = 4;
 const int H_MAX = 100;
 const int N_MIN = 0;
-int N_MAX = 100;
-const int N_MAX_MAX = W_MAX*2+H_MAX-2 - 1;
+const int N_MAX = 100;
 const int P_MIN = 0;
 const int P_MAX = 1;
 
 // 入力変数
 int W, H, N;
-int p[N_MAX_MAX];
+int p[N_MAX];
 
 void input() {
   W = inf.readInt(W_MIN, W_MAX, "W");
   inf.readSpace();
   H = inf.readInt(H_MIN, H_MAX, "H");
   inf.readEoln();
-
-  N_MAX = (W*2 + H - 2) - 1;
 
   N = inf.readInt(N_MIN, N_MAX, "N");
   inf.readEoln();
