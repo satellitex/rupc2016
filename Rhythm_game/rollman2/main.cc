@@ -19,7 +19,7 @@ void dfs(int node){
 int main(void){
   int ans = 0;
   cin >> N >> M;
-  g = vector< vector<int> >(N, vector<int>(0));
+  g = vector< vector<int> >(N);
   visited = vector<bool>(N, false);
   for(int i=0; i < M; i++){
     int a, b;

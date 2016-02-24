@@ -4,13 +4,13 @@
 #c_generator(src='generator.c')
 #cxx_generator(src='generator.cc')
 #java_generator(src='Generator.java', encoding='UTF-8', mainclass='Generator')
-#script_generator(src='generator.py')
+script_generator(src='generator.py')
 
 ## Input validators.
 #c_validator(src='validator.c')
-cxx_validator(src='validator.py')
+#cxx_validator(src='validator.py')
 #java_validator(src='Validator.java', encoding='UTF-8', mainclass='Validator')
-#script_validator(src='validator.py')
+script_validator(src='validator.py')
 
 ## Output judges.
 #c_judge(src='judge.c')
