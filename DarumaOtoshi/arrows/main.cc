@@ -1,11 +1,4 @@
-/*
-  O(N^4)
- */
-
-#include <iostream>
-#include <algorithm>
-#include <vector>
-#include <cstring>
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -18,14 +11,13 @@ int solve(int l, int r)
 {
     if (l >= r) return 0;
     
-    int &res = dp[l][r];
+    int &res = dp[l][r];    
     if (res != -1) return res;
     
     res = 0;
-    for (int i = l; i <= r-1; i++) {
-        for (int j = i+1; j <= r; j+=2) {
-            res = max(res, solve(l, i-1) + solve(i+1, j-1) + solve(j+1, r) + A[i]*A[j]);
-        }
+    for (int i = l+1; i <= r; i++) {
+        if ((i-l)&1) res = max(res, solve(l, i) + solve(i+1, r));           
+        res = max(res, solve(l+1, i-1) + solve(i, r-1) + A[l]*A[r]);
     }
     return res;
 }
