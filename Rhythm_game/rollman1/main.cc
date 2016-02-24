@@ -25,6 +25,7 @@ int main(void){
     a--;
     b--;
     g[a][b] = 1;
+    g[b][a] = 1;
   }
   for(int i = 0; i < N; i++){
     bool is_there_edge = false;
@@ -41,6 +42,9 @@ int main(void){
       tap++;
     }
   }
-  std::cout << (tap > slide) ? (tap-slide) : (slide-tap) << '\n';
+  std::cout << tap << " " << slide << '\n';
+  int ans = tap - slide;
+  if(ans < 0) ans*=-1;
+  std::cout << ans << std::endl;
   return 0;
 }
