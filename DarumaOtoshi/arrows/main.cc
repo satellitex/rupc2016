@@ -15,7 +15,7 @@ int solve(int l, int r)
     if (res != -1) return res;
     
     res = 0;
-    for (int i = l+1, j = 0; i <= r; i++, j++) {
+    for (int i = l+1; i <= r; i++) {
         if ((i-l)&1) res = max(res, solve(l, i) + solve(i+1, r));           
         res = max(res, solve(l+1, i-1) + solve(i, r-1) + A[l]*A[r]);
     }
