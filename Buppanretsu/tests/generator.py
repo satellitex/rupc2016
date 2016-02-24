@@ -1,5 +1,5 @@
-# -*- coding: utf-8 -*-
 #!/usr/bin/python3
+# -*- coding: utf-8 -*-
 
 import random
 
@@ -20,7 +20,7 @@ def generate():
   w = random.randint(W_MIN, W_MAX)
 
   N_MIN = 0;
-  N_MAX = (w*2 + h - 2) - 1
+  N_MAX = min(100, (w*2 + h - 2) - 1)
 
   n = random.randint(N_MIN, N_MAX)
   f.write("{} {}\n{}\n".format(w, h, n))
