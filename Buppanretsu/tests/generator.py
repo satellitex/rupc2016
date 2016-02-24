@@ -23,13 +23,13 @@ def generate():
   N_MAX = (w*2 + h - 2) - 1
 
   n = random.randint(N_MIN, N_MAX)
-  f.write("{} {}\n{}".format(w, h, n))
+  f.write("{} {}\n{}\n".format(w, h, n))
 
   for i in range(n):
     if i == 0:
       f.write("{}".format(random.randint(0, 1)))
     else:
-      f.write(" {}".format(ranodm.randint(0, 1)))
+      f.write(" {}".format(random.randint(0, 1)))
   f.write('\n')
   f.close()
 
