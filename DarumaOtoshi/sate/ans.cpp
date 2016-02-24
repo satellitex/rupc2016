@@ -20,7 +20,8 @@ int main(){
 		        dp[l+1][i] + dp[i+1][r-1] + A[l] * A[r] );
       for(int i = l+1;i<r;i+=2)
 	dp[l][r] = max( dp[l][r],
-			dp[l][i] + dp[i][r] );      
+			dp[l][i] + dp[i+1][r] );
+      cout << l << ", " << r << " = " << dp[l][r] << endl;
     }
   }
   
