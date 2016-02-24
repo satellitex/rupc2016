@@ -2,5 +2,6 @@
 *~
 # 実行ファイルは無視
 *.out
+*.exe
  # rime-out/下は無視
 rime-out/
