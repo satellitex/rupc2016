@@ -3,6 +3,7 @@
 #define R 1
 
 bool check(int l, int r, int W, int H){
+  if(l == W || l == W+H-1) return false;
   if(l < W){
     if(l == r) return true;
     else return false;
