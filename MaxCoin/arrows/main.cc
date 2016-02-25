@@ -1,13 +1,10 @@
-#include <iostream>
-#include <algorithm>
-#include <vector>
-#include <cstring>
+#include <bits/stdc++.h>
 
 using namespace std;
 
 #define MAX 300
-#define MAX_Y 2000
-#define OFFSET 1000
+#define MAX_Y 1000
+#define OFFSET 350
 
 int dp[2][MAX+1][MAX_Y];
 
@@ -23,44 +20,33 @@ int main()
     vector<int> a(n), b(n), c(n), d(n);
     for (int i = 0; i < n; i++) {
         cin >> a[i] >> b[i] >> c[i] >> d[i];
-    }
-    
+    }    
     memset(dp, -1, sizeof(dp));    
     dp[0][x][y+OFFSET] = 0;
-
     int res = 0;
     for (int i = 0; i < n; i++) {
+        int cur = i%2, next = (i+1)%2;
         for (int j = 0; j <= MAX; j++) {
-            for (int k = MAX_Y-1; k >= 0; k--) {
-                int ni = (i+1)%2, nk = k;
-                if (dp[i%2][j][nk] == -1) {
-                    continue;
-                }
-                int cost = dp[i%2][j][nk];
+            for (int k = c[i]; k < MAX_Y-b[i]; k++) {
+                if (dp[cur][j][k] == -1) continue;
                 
-                if (j-a[i] >= 0 && nk+b[i] < MAX_Y) {
-                    chmax(dp[ni][j-a[i]][nk+b[i]], cost);
-                    if (nk+b[i] >= OFFSET) {
-                        chmax(res, dp[ni][j-a[i]][nk+b[i]]);                       
+                int gold = dp[cur][j][k];
+                chmax(dp[next][j][k], gold);
+                if (j-a[i] >= 0) {
+                    chmax(dp[next][j-a[i]][k+b[i]], gold);
+                    if (k+b[i] >= OFFSET) {
+                        chmax(res, dp[next][j-a[i]][k+b[i]]);                       
                     }
                 }
-                nk -= c[i];
-                if (nk >= 0) {
-                    cost += d[i];
-                    chmax(dp[ni][j][nk], cost);
-                    if (nk >= OFFSET) {
-                        chmax(res, dp[ni][j][nk]);   
-                    }
+                gold += d[i];
+                chmax(dp[next][j][k-c[i]], gold);
+                if (k-c[i] >= OFFSET) {
+                    chmax(res, dp[next][j][k-c[i]]);   
                 }
             }
         }
-        for (int j = 0; j <= MAX; j++) {
-            for (int k = 0; k < MAX_Y; k++) {
-                dp[i%2][j][k] = -1;
-            }
-        }
+        memset(dp[cur], -1, sizeof(dp[cur]));
     }
-    
     cout << res << endl;
     return 0;
 }
