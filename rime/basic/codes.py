@@ -161,7 +161,7 @@ class CXXCode(CodeBase):
     exe_name = os.path.splitext(src_name)[0] + consts.EXE_EXT
     super(CXXCode, self).__init__(
       src_name=src_name, src_dir=src_dir, out_dir=out_dir,
-      compile_args=(['g++',
+      compile_args=(['g++', '-O2',
                      '-o', os.path.join(out_dir, exe_name),
                      src_name] + list(flags)),
       run_args=[os.path.join(out_dir, exe_name)])
