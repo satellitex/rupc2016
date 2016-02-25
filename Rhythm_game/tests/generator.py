@@ -1,11 +1,12 @@
-# -*- coding: utf-8 -*-
 #!/usr/bin/python3
+# -*- coding: utf-8 -*-
 
 import random
 
+NUMOFCASE = 10
 N_MIN = 1
 N_MAX = 1000
-M_MIN = 1
+M_MIN = 0
 M_MAX = 100
 
 seq = 0
@@ -22,13 +23,15 @@ def generate():
   for i in range(m):
     a = random.randint(N_MIN, n)
     b = random.randint(N_MIN, n)
+    while a == b:
+      b = random.randint(N_MIN, n)
     f.write("{} {}\n".format(a, b))
   f.close()
 
 def main():
   global seq
 
-  for i in range(100):
+  for i in range(NUMOFCASE):
     generate()
     seq += 1
 
