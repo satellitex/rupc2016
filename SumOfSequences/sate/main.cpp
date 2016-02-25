@@ -2,21 +2,21 @@
 using namespace std;
 
 
-const double PI = 4.0*atan(1.0);
-const int MAX = 200000;
+typedef long long ll;
+const ll MAX = 210000;
 typedef complex<double> P;
 const P I(0, 1);
 
 //要素数n (2^k), (a[i].real()に値), inv = true のとき逆変換
-void fft(int n, vector<P> &a, bool inv = false) {
-  double theta = 2.0 * PI / n;
+void fft(ll n, vector<P> &a, bool inv = false) {
+  double theta = 2.0 * M_PI / n;
   if( inv ) theta *= -1.0;
-  for (int m = n; m >= 2; m >>= 1) {
-    int mh = m >> 1;
-    for (int i = 0; i < mh; i++) {
+  for (ll m = n; m >= 2; m >>= 1) {
+    ll mh = m >> 1;
+    for (ll i = 0; i < mh; i++) {
       P w = exp(i*theta*I);
-      for (int j = i; j < n; j += m) {
-        int k = j + mh;
+      for (ll j = i; j < n; j += m) {
+        ll k = j + mh;
         P x = a[j] - a[k];
         a[j] += a[k];
         a[k] = w * x;
@@ -24,90 +24,71 @@ void fft(int n, vector<P> &a, bool inv = false) {
     }
     theta *= 2;
   }
-  int i = 0;
-  for (int j = 1; j < n - 1; j++) {
-    for (int k = n >> 1; k > (i ^= k); k >>= 1);
+  ll i = 0;
+  for (ll j = 1; j < n - 1; j++) {
+    for (ll k = n >> 1; k > (i ^= k); k >>= 1);
     if (j < i) swap(a[i], a[j]);
   }
   if( inv )
-    for(int i=0;i<n;i++) a[i]/=n;
+    for(ll i=0;i<n;i++) a[i]/=(double)n;
 }
 
-vector<int> mult(vector<int> a,vector<int> b){
-  int n = 1;
-  while( n < a.size()+b.size() ) n*=2;
-  vector<P> ai(n,{0,0}),bi(n,{0,0});
-  for(int i=0;i<a.size();i++) ai[i].real( a[i] );
-  for(int i=0;i<b.size();i++) bi[i].real( b[i] );
+
+vector<ll> mult(vector<ll> a,vector<ll> b){
+  ll n = 1;
+  while( n < a.size()+b.size()-1 ) n*=2;
+  vector<P> ai(n),bi(n);
+  for(ll i=0;i<a.size();i++) ai[i]=P( a[i], 0 );
+  for(ll i=0;i<b.size();i++) bi[i]=P( b[i], 0 );
   fft(n,ai);
   fft(n,bi);
-  for(int i=0;i<n;i++) ai[i] = ai[i]*bi[i];
+  for(ll i=0;i<n;i++) ai[i] *= bi[i];
   fft(n,ai,true);
-  vector<int> ret(n);
-  for(int i=0;i<n;i++) ret[i] = (int)(ai[i].real()+0.5);
+  vector<ll> ret(n);
+  for(ll i=0;i<n;i++) ret[i] = round(ai[i].real());
   return ret;
 }
 
 
-int N,M,Q;
-int A[20004];
-int B[20004];
+ll N,M,Q;
+ll A[40004];
+ll B[40004];
 
-vector<int> rsk(int *a,int n){
-  int max = 0;
-  for(int i=0;i<n;i++) max+=a[i];
-  //cout << max << endl;
-  //max = MAX;
-  vector<int> ra(max+1);
-  int sm = 0;
+vector<ll> rsk(ll *a,ll n){
+  ll m = MAX;
+  vector<ll> ra(m+1,0);
+  ll sm = 0;
   ra[0] = 1;
-  for(int i=0;i<n;i++)
+  for(ll i=0;i<n;i++)
     ra[ sm+=a[i] ] = 1;
-  vector<int> rx = ra;
+  vector<ll> rx = ra;
   reverse(rx.begin(),rx.end());
-  vector<int> v = mult(ra,rx);
-  vector<int> x;
-  /*
-  for(int i=0;i<=MAX;i++) cout << ra[i] << " ";
-  cout << endl;
-  for(int i=0;i<=MAX;i++) cout << rx[i] << " ";
-  cout << endl;
+
   
-  for(int i=0;i<=2*MAX;i++) cout << v[i] << " ";
-  cout << endl;
-  */
+  vector<ll> v = mult(ra,rx);
+  vector<ll> x;
   x.push_back(0);
-  for(int i=max+1;i<=2*max;i++){
+  for(ll i=m-1;i>-1;i--){
     x.push_back( v[i] );    
-  }
-  
-  
+  }    
   return x;
 }
 
 int main(){
   cin >> N >> M >> Q;
-  for(int i=0;i<N;i++) cin >> A[i];
-  for(int i=0;i<M;i++) cin >> B[i];
+  for(ll i=0;i<N;i++) cin >> A[i];
+  for(ll i=0;i<M;i++) cin >> B[i];
 
-  vector<int> va = rsk(A,N);
-  vector<int> vb = rsk(B,M);
-  /*
-  for(int i=0;i<(int)va.size();i++)
-    cout << va[i] << " ";
-  cout << endl;
-  for(int i=0;i<(int)vb.size();i++)
-    cout << vb[i] << " ";
-  cout << endl;
-  */
+  vector<ll> va = rsk(A,N);
+  vector<ll> vb = rsk(B,M);  
   
   reverse(vb.begin(),vb.end());
 
-  vector<int> v = mult(va,vb);
-
-  
-  for(int i=0;i<Q;i++){
-    int c; cin >> c;
-    cout << v[c+va.size()-1]+v[va.size()-1-c] << endl;
+  vector<ll> v = mult(va,vb);
+  int m = MAX;
+  for(ll i=0;i<Q;i++){
+    ll c; cin >> c;
+    if( !c )  cout << v[m] << endl;
+    else cout << v[c+m]+v[m-c] << endl;
   }
 }
