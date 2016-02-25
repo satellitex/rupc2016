@@ -45,7 +45,7 @@ bool check(int u, int v)
                 d1.push_back(i);
                 for (int j = 0; j < (int)G[i].size(); j++) {
                     if (d[G[i][j]] == (n-1)/2+1) {
-                        d1.push_back(i); break;
+                        d1.push_back(G[i][j]); break;
                     }
                 }
                 break;
