@@ -25,6 +25,7 @@ def main():
     assert len(line.split()) == 2, 'Too many or less arguments at line {}'.format(num_line+1)
     a = int(line.split()[0])
     b = int(line.split()[1])
+    assert a != b, 'a is not equal to b, {} and {}'.format(a, b)
     assert  A_MIN <= a <= A_MAX , 'a out of range: {}'.format(a)
     assert  A_MIN <= b <= A_MAX , 'b out of range: {}'.format(b)
 

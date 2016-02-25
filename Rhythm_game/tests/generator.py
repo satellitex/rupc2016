@@ -23,6 +23,8 @@ def generate():
   for i in range(m):
     a = random.randint(N_MIN, n)
     b = random.randint(N_MIN, n)
+    while a == b:
+      b = random.randint(N_MIN, n)
     f.write("{} {}\n".format(a, b))
   f.close()
 
