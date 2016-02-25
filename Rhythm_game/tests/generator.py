@@ -3,6 +3,7 @@
 
 import random
 
+NUMOFCASE = 10
 N_MIN = 1
 N_MAX = 1000
 M_MIN = 1
@@ -28,7 +29,7 @@ def generate():
 def main():
   global seq
 
-  for i in range(100):
+  for i in range(NUMOFCASE):
     generate()
     seq += 1
 
