@@ -3,6 +3,7 @@
 
 import random
 
+NUMOFCASE = 10
 W_MIN = 4
 W_MAX = 100
 H_MIN = 4
@@ -36,7 +37,7 @@ def generate():
 def main():
   global seq
 
-  for i in range(100):
+  for i in range(NUMOFCASE):
     generate()
     seq += 1
 

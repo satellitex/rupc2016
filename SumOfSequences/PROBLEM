@@ -7,5 +7,5 @@
 ##   time_limit: The time limit of this problem in seconds.
 problem(title = "Sum of Sequences",
         id = "A",
-        time_limit = 3.0,
+        time_limit = 5.0,
         )
