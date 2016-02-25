@@ -32,7 +32,7 @@ int main() {
   int x[n],y[m];
   for(int i=0; i<n; i++) cin >> x[i];
   for(int i=0; i<m; i++) cin >> y[i];
-  int cc[n+1],dd[n+1];
+  int cc[n+1],dd[m+1];
   cc[0]=dd[0]=0;
   for(int i=0; i<n; i++) cc[i+1]=cc[i]+x[i];
   for(int i=0; i<m; i++) dd[i+1]=dd[i]+y[i];
