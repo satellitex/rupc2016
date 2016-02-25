@@ -6,7 +6,7 @@ import random
 NUMOFCASE = 10
 N_MIN = 1
 N_MAX = 1000
-M_MIN = 1
+M_MIN = 0
 M_MAX = 100
 
 seq = 0

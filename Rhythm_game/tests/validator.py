@@ -5,7 +5,7 @@ import sys
 
 N_MIN = 1
 N_MAX = 1000
-M_MIN = 1
+M_MIN = 0
 M_MAX = 100
 
 def main():
@@ -21,6 +21,8 @@ def main():
 
   num_line = 0
   for line in sys.stdin:
+    if line == "\n":
+      break
     num_line += 1
     assert len(line.split()) == 2, 'Too many or less arguments at line {}'.format(num_line+1)
     a = int(line.split()[0])
