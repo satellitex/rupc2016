@@ -65,6 +65,7 @@ int main() {
     memset(d2,-1,sizeof(d2));f2=1;
     D(x,y);
     for(int i=1; i<=n; i++) d2[i]=max(d2[i],d[i]);
+    if(d2[s]!=-1&&d2[t]!=-1||d2[s]==-1&&d2[t]==-1) f2=0;
     D(y,x);
     for(int i=1; i<=n; i++) d2[i]=max(d2[i],d[i]);
   }
