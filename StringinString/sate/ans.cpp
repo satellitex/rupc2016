@@ -202,8 +202,7 @@ public:
 struct query{
   int id,r;
   bool f;
-  string s;
-  query(int id,int r,bool f,const char* ptr) : id(id),r(r),f(f),s(ptr) {}
+  query(int id,int r,bool f) : id(id),r(r),f(f) {}
   bool operator<(const query& q) const{
     return r > q.r;
   }
@@ -211,6 +210,7 @@ struct query{
 
 string S;
 char buf[100005];
+string M[100005];
 vector<query> q;
 int res[100005];
 int A[100005];
@@ -231,9 +231,10 @@ int main(){
   for(int i=0;i<Q;i++){
     int l,r;
     scanf("%d%d%s",&l,&r,buf);
+    M[i] = buf;
     int n = strlen( buf );
-    q.push_back( query(i,r-n+1,true,buf) );
-    q.push_back( query(i,l-1,false,buf) );
+    q.push_back( query(i,r-n+1,true) );
+    q.push_back( query(i,l-1,false) );
   }
 
   sort( q.begin(), q.end() );
@@ -242,7 +243,7 @@ int main(){
   for(int i=0;i<(int)q.size();i++){
     while( pr > q[i].r ) bit.add(R[pr--]+1,-1);
     if( q[i].r < 0 ) break;
-    int ret = bit.sum(upper_bound(S,A,q[i].s)) - bit.sum(lower_bound(S,A,q[i].s));
+    int ret = bit.sum(upper_bound(S,A,M[q[i].id])) - bit.sum(lower_bound(S,A,M[q[i].id]));
     if( ret > 0 ) res[q[i].id] += (q[i].f?ret:-ret);    
   }
   for(int i=0;i<Q;i++){
