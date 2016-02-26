@@ -70,7 +70,7 @@ pair<double, double> getLine(P p1, P p2) {
   }
 }
 
-void rec(UnionFind uf, int num, int count) {
+void rec(UnionFind uf, int num, int count, int prev = 0) {
   if (num >= ans) {
     return;
   }
@@ -78,7 +78,7 @@ void rec(UnionFind uf, int num, int count) {
     ans = num;
     return;
   }
-  for (int i = 0; i < es.size(); ++i) {
+  for (int i = prev; i < es.size(); ++i) {
     UnionFind next = uf;
     int ncount = count;
     for (int j = 0; j < es[i].size(); ++j) {
@@ -89,7 +89,7 @@ void rec(UnionFind uf, int num, int count) {
         ncount++;
       }
     }
-    rec(next, num + 1, ncount);
+    rec(next, num + 1, ncount, i + 1);
   }
 }
 
