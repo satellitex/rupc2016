@@ -3,42 +3,6 @@ using namespace std;
 
 typedef complex<double> P;
 
-const double eps = 1e-8;
-const double inf = 1e10;
-
-double equals(double a, double b) {
-  return abs(a - b) < eps;
-}
-
-double dot  (P a, P b) {
-  return a.real()*b.real() + a.imag()*b.imag();
-}
-
-double cross(P a, P b) {
-  return a.real()*b.imag() - a.imag()*b.real();
-}
-
-P project(P s1, P s2, P p) {
-  P base = s2 - s1;
-  double t = dot(p - s1, base)/norm(base);
-  return s1 + base*t;
-}
-
-P reflect(P s1, P s2, P p) {
-  return p + (project(s1, s2, p) - p)*2.0;
-}
-
-pair<double, double> getLine(P p1, P p2) {
-  if (equals(p1.imag(), p2.imag())) {
-    return make_pair(inf, (p1.real() + p2.real()) / 2.0);
-  } else {
-    P m = (p1 + p2) / 2.0;
-    double a = - (p1.real() - p2.real()) / (p1.imag() - p2.imag());
-    double b = m.imag() - a * m.real();
-    return make_pair(a, b);
-  }
-}
-
 class UnionFind {
 private:
   vector<int> par;
@@ -82,12 +46,29 @@ public:
 
 const int N_MAX = 8;
 const int INF = 1<<28;
+const double eps = 1e-8;
+const double inf = 1e10;
 
 int n;
 P ps[N_MAX];
 int G[N_MAX][N_MAX];
 vector<vector<pair<int, int> > > es;
 int ans;
+
+double equals(double a, double b) {
+  return abs(a - b) < eps;
+}
+
+pair<double, double> getLine(P p1, P p2) {
+  if (equals(p1.imag(), p2.imag())) {
+    return make_pair(inf, (p1.real() + p2.real()) / 2.0);
+  } else {
+    P m = (p1 + p2) / 2.0;
+    double a = - (p1.real() - p2.real()) / (p1.imag() - p2.imag());
+    double b = m.imag() - a * m.real();
+    return make_pair(a, b);
+  }
+}
 
 void rec(UnionFind uf, int num, int count) {
   if (num >= ans) {
