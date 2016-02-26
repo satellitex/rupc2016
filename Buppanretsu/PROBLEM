@@ -8,4 +8,5 @@
 problem(title = "Buppanretsu",
     id = "X",
     time_limit = 1.0,
+    reference_solution='rollman'
 )
