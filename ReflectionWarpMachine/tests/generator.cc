@@ -6,10 +6,12 @@ const int INF=1<<29;
 set<P> s;
 
 int main(int argc, char* argv[]) {
-  registerGen(argc, argv);
+  registerGen(argc, argv,1);
   for(int t=0; t<10; t++) {
-    ofstream ofs(format("03_random_%02d.in",t).c_str());
-    int n=rnd.next(2, 8);
+    s.clear();
+    //ofstream ofs(format("03_random_%02d.in",t).c_str());
+    ofstream ofs(format("05_random_%02d.in",t).c_str());
+    int n=rnd.next(8, 8);
     ofs << n << endl;
     s.insert(P(INF,INF));
     for(int i=0; i<n; i++) {

@@ -27,7 +27,7 @@ P PerpendicularBisector(P a,P b) {
     y=-(a.real()+b.real())/2*x+(a.imag()+b.imag())/2;
   } else {
     x=INF;
-    y=(a.imag()+b.imag())/2;
+    y=(a.real()+b.real())/2;
   }
   if(x==-0) x=0;
   return P(x,y);
