@@ -8,7 +8,7 @@ int main(int argc, char *argv[])
 {
     registerGen(argc, argv, 1);
     int n, x, y;
-    for (int t = 0; t < 15; t++) {
+    for (int t = 0; t < 30; t++) {
         ofstream of(format("03_random_%02d.in", t+1).c_str());
         n = rnd.next(1, 100);
         of << n << endl;
