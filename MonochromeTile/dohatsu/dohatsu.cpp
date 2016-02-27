@@ -62,13 +62,11 @@ int main(){
   long long sum=0;
   for(int i=0;i<n;i++){
     scanf("%d %d %d %d",&ax,&ay,&bx,&by);
-    if(T.check(ax,bx+1,ay,by,0,0,(1<<17))){
-      printf("%lld\n",sum);
-    }else{
+    if(!T.check(ax,bx+1,ay,by,0,0,(1<<17))){
       T.insert(ax,bx+1,ay,by,0,0,(1<<17));
       sum+=(long long)(bx-ax+1)*(long long)(by-ay+1);
-      printf("%lld\n",sum);
     }
+    printf("%lld\n",sum);
   }
   return 0;
 }
