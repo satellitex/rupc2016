@@ -1,5 +1,4 @@
-#include <iostream>
-#include <vector>
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -25,14 +24,14 @@ int main()
             ux += dx[ud];
             uy += dy[ud];
             if ((ud == 0 && ux == W-1) ||
-                (ud == 1 && uy == H)) {
+                (ud == 1 && uy == H-1)) {
                 ud++;
             } 
         } else {
             rx += dx[rd];
             ry += dy[rd];
             if ((rd == 0 && rx == W-2) ||
-                (rd == 1 && ry == H-1)) {
+                (rd == 1 && ry == H-2)) {
                 rd++;
             }
         }
