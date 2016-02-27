@@ -1,10 +1,9 @@
 #include<bits/stdc++.h>
 using namespace std;
 typedef pair<int,int> P;
-#define MAX_N 100000
   
-int n;
-int ax[MAX_N],ay[MAX_N],bx[MAX_N],by[MAX_N];
+int h,w,n;
+int ax,ay,bx,by;
 
 struct segtree{
   
@@ -59,20 +58,17 @@ struct segtree{
 segtree T;
   
 int main(){
-  while(scanf("%d",&n)!=EOF){
-    long long sum=0;
-    for(int i=0;i<n;i++)scanf("%d %d %d %d",&ax[i],&ay[i],&bx[i],&by[i]);
-    T.init();
-    for(int i=0;i<n;i++){
-      if(T.check(ax[i],bx[i]+1,ay[i],by[i],0,0,(1<<17))){
-        printf("%lld\n",sum);
-      }else{
-        T.insert(ax[i],bx[i]+1,ay[i],by[i],0,0,(1<<17));
-        sum+=(long long)(bx[i]-ax[i]+1)*(long long)(by[i]-ay[i]+1);
-        printf("%lld\n",sum);
-      }
+  scanf("%d %d %d",&w,&h,&n);
+  long long sum=0;
+  for(int i=0;i<n;i++){
+    scanf("%d %d %d %d",&ax,&ay,&bx,&by);
+    if(T.check(ax,bx+1,ay,by,0,0,(1<<17))){
+      printf("%lld\n",sum);
+    }else{
+      T.insert(ax,bx+1,ay,by,0,0,(1<<17));
+      sum+=(long long)(bx-ax+1)*(long long)(by-ay+1);
+      printf("%lld\n",sum);
     }
   }
   return 0;
 }
-
