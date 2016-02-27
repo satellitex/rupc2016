@@ -40,9 +40,9 @@ void gen2(string name,int n,int q,bool sizek,int minmstr = 100000){
     string m;
     int see=rnd.next(1,1000);
     if( see == 1 ){
-      m = "[a-c]{1,10}";
+      m = rnd.next("[a-c]{1,10}");
     } else if( see == 2 ){
-      m = "[x-z]{1,10}";
+      m = rnd.next("[x-z]{1,10}");
     } else {
       if( sizek )
 	m = rnd.next("[h-l]{"+toString(min(minmstr,MAXSUM/q))+"}");
@@ -64,9 +64,9 @@ void gen3(string name,int n,int q,bool sizek,int minmstr=100000){
     string m;
     int see=rnd.next(1,1000);
     if( see == 1 ){
-      m = "[a-c]{1,10}";
+      m = rnd.next("[a-c]{1,10}");
     } else if( see == 2 ){
-      m = "[x-z]{1,10}";
+      m = rnd.next("[x-z]{1,10}");
     } else {
       if( sizek )
 	m = rnd.next("[h-i]{"+toString(min(minmstr,MAXSUM/q))+"}");
