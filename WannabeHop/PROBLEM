@@ -7,5 +7,5 @@
 ##   time_limit: The time limit of this problem in seconds.
 problem(title = "WannabeHop",
         id = "A",
-        time_limit = 1.0,
+        time_limit = 5.0,
         )

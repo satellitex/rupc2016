@@ -44,7 +44,7 @@ public:
   }
 };
 
-const int N_MAX = 8;
+const int N_MAX = 9;
 const int INF = 1<<28;
 const double eps = 1e-8;
 const double inf = 1e10;
