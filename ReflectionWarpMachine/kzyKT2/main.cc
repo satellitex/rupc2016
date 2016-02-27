@@ -34,28 +34,9 @@ P PerpendicularBisector(P a,P b) {
 }
 
 P a[10];
-ll n,k,ans;
+int n,k,ans;
 map<P,vector<PP> > m;
 map<int,P> ma;
-void dfs(int l, ll t) {
-  bool f=1;
-  for(int i=1; i<n; i++) {
-    if(!same(0,i)) {
-      f=0;
-      break;
-    }
-  }
-  if(f) ans=min(ans,t);
-  if(t>=n-2) return;
-  for(int i=l; i<k; i++) {
-    int pp[n],rr[n];
-    for(int j=0; j<n; j++) pp[j]=p[j],rr[j]=r[j];
-    vector<PP> v=m[ma[i]];
-    for(int j=0; j<v.size(); j++) unite(v[j].first,v[j].second);
-    dfs(i+1,t+1);
-    for(int j=0; j<n; j++) p[j]=pp[j],r[j]=rr[j];
-  }
-}
 
 int main() {
   cin >> n;
@@ -68,9 +49,28 @@ int main() {
   }
   k=0;
   for(map<P,vector<PP> >::iterator it=m.begin();it!=m.end();it++) ma[k++]=it->first;
-  init();
   ans=n-1;
-  dfs(0,0);
+  for(int t=1; t<n-1; t++) {
+    int b[k];
+    memset(b,0,sizeof(b));
+    for(int i=0; i<t; i++) b[n-1-i]=1;
+    do {
+      init();
+      for(int i=0; i<k; i++) {
+        if(!b[i]) continue;
+        vector<PP> v=m[ma[i]];
+        for(int j=0; j<v.size(); j++) unite(v[j].first,v[j].second);
+      }
+      bool f=1;
+      for(int i=1; i<n; i++) {
+        if(!same(0,i)) {
+          f=0;
+          break;
+        }
+      }
+      if(f) ans=min(ans,t);
+    } while(next_permutation(b,b+k));
+  }
   cout << ans << endl;
   return 0;
 }
