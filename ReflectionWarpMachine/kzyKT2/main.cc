@@ -53,7 +53,7 @@ int main() {
   for(int t=1; t<n-1; t++) {
     int b[k];
     memset(b,0,sizeof(b));
-    for(int i=0; i<t; i++) b[n-1-i]=1;
+    for(int i=0; i<t; i++) b[k-1-i]=1;
     do {
       init();
       for(int i=0; i<k; i++) {
