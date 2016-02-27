@@ -20,7 +20,7 @@ int solve(int i,int p) {
   if(k!=-1) v[i][k].second=n-1-sum;
   return sum+1;
 }
-int d[11111],d2[11111],f2;
+int d[111111],d2[111111],f2;
 void dfs(int x,int k,int y) {
   d[x]=k;
   for(int i=0; i<v[x].size(); i++) {
