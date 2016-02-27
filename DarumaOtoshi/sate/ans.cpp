@@ -21,7 +21,6 @@ int main(){
       for(int i = l+1;i<r;i+=2)
 	dp[l][r] = max( dp[l][r],
 			dp[l][i] + dp[i+1][r] );
-      cout << l << ", " << r << " = " << dp[l][r] << endl;
     }
   }
   
