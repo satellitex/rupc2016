@@ -1,13 +1,9 @@
 #include "testlib.h"
-#include <iostream>
-#include <vector>
-#include <fstream>
-#include <algorithm>
-
+#include <bits/stdc++.h>
 using namespace std;
 
 void gen(string name,int n,int maxa){
-  ofstream of(name);
+  ofstream of(name.c_str());
   of << n << endl;
   for(int i=0;i<n;i++){
     if( i ) of << " ";
