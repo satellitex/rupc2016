@@ -19,13 +19,13 @@ int main() {
             for(int l=0; l<3; l++) {
               if(a[l]==0) {
                 if(i&&x==x2) f=0;
-                for(int l=0; l<i; l++) {swap(y,z);z=n-z-1;}
+                for(int h=0; h<i; h++) {swap(y,z);z=n-z-1;}
               } else if(a[l]==1) {
                 if(j&&y==y2) f=0;
-                for(int l=0; l<j; l++) {swap(z,x);x=n-x-1;}
+                for(int h=0; h<j; h++) {swap(z,x);x=n-x-1;}
               } else {
                 if(k&&z==z2) f=0;
-                for(int l=0; l<k; l++) {swap(x,y);y=n-y-1;}
+                for(int h=0; h<k; h++) {swap(x,y);y=n-y-1;}
               }
             }
             if(!f) continue;
