@@ -10,9 +10,11 @@ bool check(int l, int r, int W, int H){
   }else if(W < l && l < W+H-1){
     if(l-2 == r) return true;
     else return false;
-  }else{
+  }else if(W+H-1 < l){
     if(l-4 == r) return true;
     else return false;
+  }else{
+    return false;
   }
 }
 
@@ -22,7 +24,8 @@ int main(void){
   std::cin >> W >> H;
   std::cin >> N;
   int l, r;
-  l = r = 1;
+  l = 1;
+  r = 1;
 
   for(int i=0; i < N; i++){
     int p; std::cin >> p;
