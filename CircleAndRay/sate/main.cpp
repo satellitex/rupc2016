@@ -82,7 +82,7 @@ vector<L> tangentCC (Circle p, Circle q) {
 }
 
 // 線分と点の交差判定
-bool isIntersectSP(L s, P p){ 
+bool isIntersectSP(L s, P p){
   return abs(s.first-p) + abs(s.second-p) - abs(s.second-s.first) < EPS; 
 }
 
@@ -108,7 +108,7 @@ int N;
 int getBit(const vector<Circle>& c, L s ){
   int bit = 0;
   for(int k=1;k<N;k++){
-    if( !getIntersectCS( c[k], s ).empty() ){
+    if( !(getIntersectCS( c[k], s ).empty()) ){
       bit |= (1<<(k-1));
     }
   }
@@ -129,13 +129,18 @@ int main(){
   vector<int> ss;
   for(int i=1;i<N;i++){
     vector<L> ret = tangentCC( c[0],c[i] );
+    ret.push_back(L(c[0].c,c[i].c));
     for(int j=0;j<(int)ret.size();j++){
-      P v = (ret[j].second - ret[j].first);
+      //   cout << ret[j].first << " -> " << ret[j].second << endl;
+      P v = ret[j].second - ret[j].first;
       v*=200.0;
       P nv = ret[j].first + v;
+      // cout << ret[j].first << " -> " << nv << endl;
       ss.push_back( getBit(c,L(ret[j].first,nv)) );
+      //      cout  << bitset<5>(ss.back()) << endl;		    		    
     }
   }
+    
 
   int n = N-1;
   fill(dp,dp+(1<<n),100);
