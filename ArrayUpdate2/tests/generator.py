@@ -2,7 +2,7 @@
 # -*- encoding: utf-8 -*-
 import random
 
-NUMOFCASE = 10
+NUMOFCASE = 15
 N_MIN = 2;
 N_MAX = 200000;
 A_MIN = 1;
