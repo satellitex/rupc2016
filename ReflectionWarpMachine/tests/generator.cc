@@ -11,7 +11,7 @@ int main(int argc, char* argv[]) {
     s.clear();
     //ofstream ofs(format("03_random_%02d.in",t).c_str());
     ofstream ofs(format("05_random_%02d.in",t).c_str());
-    int n=rnd.next(8, 8);
+    int n=rnd.next(2, 8);
     ofs << n << endl;
     s.insert(P(INF,INF));
     for(int i=0; i<n; i++) {
