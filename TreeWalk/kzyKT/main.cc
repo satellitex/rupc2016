@@ -69,7 +69,7 @@ int main() {
     D(y,x);
     for(int i=1; i<=n; i++) d2[i]=max(d2[i],d[i]);
   }
-  if(f2&&check(s,t,n)) cout << "Yes" << endl;
+  if(n%2==0&&f2&&check(s,t,n)) cout << "Yes" << endl;
   else cout << "No" << endl;
   return 0;
 }
