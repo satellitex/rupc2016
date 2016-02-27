@@ -34,10 +34,9 @@ P PerpendicularBisector(P a,P b) {
 }
 
 P a[10];
-int n,k,ans;
+ll n,k,ans;
 map<P,vector<PP> > m;
 map<int,P> ma;
-int c;
 void dfs(int l, ll t) {
   bool f=1;
   for(int i=1; i<n; i++) {
@@ -46,15 +45,14 @@ void dfs(int l, ll t) {
       break;
     }
   }
-  int e=__builtin_popcount(t);
-  if(f) ans=min(ans,e);
-  if(e>=n-2) return;
+  if(f) ans=min(ans,t);
+  if(t>=n-2) return;
   for(int i=l; i<k; i++) {
     int pp[n],rr[n];
     for(int j=0; j<n; j++) pp[j]=p[j],rr[j]=r[j];
     vector<PP> v=m[ma[i]];
     for(int j=0; j<v.size(); j++) unite(v[j].first,v[j].second);
-    dfs(i+1,t|(1<<i));
+    dfs(i+1,t+1);
     for(int j=0; j<n; j++) p[j]=pp[j],r[j]=rr[j];
   }
 }
