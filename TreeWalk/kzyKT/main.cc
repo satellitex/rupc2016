@@ -20,7 +20,7 @@ int solve(int i,int p) {
   if(k!=-1) v[i][k].second=n-1-sum;
   return sum+1;
 }
-int d[11111],d2[11111],f2;
+int d[111111],d2[111111],f2;
 void dfs(int x,int k,int y) {
   d[x]=k;
   for(int i=0; i<v[x].size(); i++) {
@@ -69,7 +69,7 @@ int main() {
     D(y,x);
     for(int i=1; i<=n; i++) d2[i]=max(d2[i],d[i]);
   }
-  if(f2&&check(s,t,n)) cout << "Yes" << endl;
+  if(n%2==0&&f2&&check(s,t,n)) cout << "Yes" << endl;
   else cout << "No" << endl;
   return 0;
 }
