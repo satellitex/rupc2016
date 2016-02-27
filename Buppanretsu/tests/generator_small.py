@@ -24,8 +24,8 @@ def generate():
   N_MIN = 0;
   N_MAX = min(100, (w*2 + h - 2) - 1)
 
-  left_max = w*2+h-2-1 - 1
-  right_max = w*2+h-2-1-4 - 1
+  left_max = w*2+h-2-1
+  right_max = w*2+h-2-1-4
   n =  left_max+ right_max
   print("{} {}\n{}".format(w, h, n))
 
