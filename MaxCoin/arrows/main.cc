@@ -3,14 +3,14 @@
 using namespace std;
 
 #define MAX 300
-#define MAX_Y 1000
-#define OFFSET 350
+#define MAX_Y 600
+#define OFFSET 300
 
-int dp[2][MAX+1][MAX_Y];
+int dp[2][MAX+1][MAX_Y+1];
 
 void chmax(int &a, int &b)
 {
-    a = max(a, b);
+    if (a < b) a = b;
 }
 
 int main()
@@ -27,7 +27,7 @@ int main()
     for (int i = 0; i < n; i++) {
         int cur = i%2, next = (i+1)%2;
         for (int j = 0; j <= MAX; j++) {
-            for (int k = c[i]; k < MAX_Y-b[i]; k++) {
+            for (int k = 0; k <= MAX_Y; k++) {
                 if (dp[cur][j][k] == -1) continue;
                 
                 int gold = dp[cur][j][k];
@@ -39,9 +39,11 @@ int main()
                     }
                 }
                 gold += d[i];
-                chmax(dp[next][j][k-c[i]], gold);
-                if (k-c[i] >= OFFSET) {
-                    chmax(res, dp[next][j][k-c[i]]);   
+                if (k-c[i] >= 0) {
+                    chmax(dp[next][j][k-c[i]], gold);
+                    if (k-c[i] >= OFFSET) {
+                        chmax(res, dp[next][j][k-c[i]]);   
+                    }   
                 }
             }
         }
