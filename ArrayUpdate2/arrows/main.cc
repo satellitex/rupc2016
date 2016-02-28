@@ -1,5 +1,4 @@
-#include <iostream>
-#include <vector>
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -10,6 +9,9 @@ inline bool between(int l, int m, int r)
 
 int main()
 {
+    cin.tie(0);
+    ios::sync_with_stdio(false);
+    
     int N, a, d, M, K;
     cin >> N >> a >> d >> M;
     vector<int> x(M), y(M), z(M);
