@@ -28,22 +28,6 @@ istream &operator >> (istream &is, Point &p)
     return is >> p.x >> p.y >> p.z;
 }
 
-struct State {
-    Point p, q;
-
-    State() {}
-    State (const Point &p, const Point &q) :
-        p(p), q(q) {}
-
-    bool operator < (const State &s) const {
-        if (p != s.p) {
-            return p < s.p;
-        } else {
-            return q < s.q;
-        }
-    }
-};
-
 int manhattan_distance(const Point &a, const Point &b)
 {
     return abs(a.x - b.x) + abs(a.y - b.y) + abs(a.z - b.z);
@@ -125,7 +109,6 @@ int main()
 
         int r[2] = {1, 3};
         if (p.z != t.z) { 
-            // x回転  x回転 rev
             for (int i = 0; i < 2; i++) {
                 np = roll_x(p, r[i], N);
                 if (dist.count(np) == 0) {
@@ -136,7 +119,6 @@ int main()
         }
         
         if (p.x != t.x) { 
-            // y回転 y回転 rev
             for (int i = 0; i < 2; i++) {
                 np = roll_y(p, r[i], N);
                 if (dist.count(np) == 0) {
@@ -147,7 +129,6 @@ int main()
         }
         
         if (p.y != t.y) {
-            // z回転 z回転 rev
             for (int i = 0; i < 2; i++) {
                 np = roll_z(p, r[i], N);
                 if (dist.count(np) == 0) {
