@@ -104,6 +104,23 @@ vector<P> getIntersectCS(Circle c, L s){
   return res;
 }
 
+//円と直線の交点
+vector<P> getIntersectCL(Circle c, L l){
+  vector<P> res;
+  P h = proj(c.c, l);
+  double d = abs(c.c - h);
+  if(d > c.r + EPS);
+  else if(d > c.r - EPS) res.push_back(h);
+  else{
+    P v = l.second - l.first;
+    v = (sqrt(c.r*c.r - d*d) / abs(v)) * v;
+    res.push_back(h+v);
+    res.push_back(h-v);
+  }
+  return res;
+}
+
+
 int N;
 int getBit(const vector<Circle>& c, L s ){
   int bit = 0;
@@ -127,17 +144,25 @@ int main(){
   }
 
   vector<int> ss;
-  for(int i=1;i<N;i++){
-    vector<L> ret = tangentCC( c[0],c[i] );
-    ret.push_back(L(c[0].c,c[i].c));
-    for(int j=0;j<(int)ret.size();j++){
-      //   cout << ret[j].first << " -> " << ret[j].second << endl;
-      P v = ret[j].second - ret[j].first;
-      v*=200.0;
-      P nv = ret[j].first + v;
-      // cout << ret[j].first << " -> " << nv << endl;
-      ss.push_back( getBit(c,L(ret[j].first,nv)) );
-      //      cout  << bitset<5>(ss.back()) << endl;		    		    
+  for(int l=0;l<N;l++){
+    for(int i=l+1;i<N;i++){
+      vector<L> ret = tangentCC( c[l],c[i] );
+      ret.push_back(L(c[l].c,c[i].c));
+      for(int j=0;j<(int)ret.size();j++){
+	//   cout << ret[j].first << " -> " << ret[j].second << endl;
+	vector<P> g = getIntersectCL(c[0],ret[j]);
+	if( g.empty() ) continue;
+
+	P v = ret[j].first - g[0];
+	v*=200.0;
+	P nv = g[0] + v;
+	ss.push_back( getBit(c,L(g[0],nv)) );
+
+	v = ret[j].second - g[0];
+	v*=200.0;
+	nv = g[0] + v;
+	ss.push_back( getBit(c,L(g[0],nv)) );
+      }
     }
   }
     
