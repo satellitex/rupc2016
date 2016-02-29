@@ -3105,7 +3105,7 @@ bool InStream::eoln()
     else
     {
         bool returnCr = false;
-        /*
+
 #ifdef ON_WINDOWS
         if (c != CR)
         {
@@ -3120,7 +3120,7 @@ bool InStream::eoln()
             c = reader->nextChar();
         }
 #endif    
-        */
+
         if (c != LF)
         {
             reader->unreadChar(c);
