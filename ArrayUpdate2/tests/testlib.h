@@ -3105,10 +3105,11 @@ bool InStream::eoln()
     else
     {
         bool returnCr = false;
-
+        /*
 #ifdef ON_WINDOWS
         if (c != CR)
         {
+
             reader->unreadChar(c);
             return false;
         }
@@ -3118,7 +3119,8 @@ bool InStream::eoln()
                 returnCr = true;
             c = reader->nextChar();
         }
-#endif        
+#endif    
+        */
         if (c != LF)
         {
             reader->unreadChar(c);
