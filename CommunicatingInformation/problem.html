@@ -1,15 +1,17 @@
 <%@ page pageEncoding="UTF-8"%>
 
-<h1>Problem A: Message</h1>
+<h1>Problem A: Gossip</h1>
 
 <h2>Problem</h2>
-<P>
-    番号1~<var>n</var>の<var>n</var>人の人が横1列に並んでいる。
-    ある番号<var>i</var>の人は、番号<var>i</var>-1と<var>i</var>+1の人に情報を合わせて1秒で伝達することができる。
-    
-    0秒時点で<var>m</var>人の番号<var>a<sub>1</sub></var>, <var>a<sub>2</sub></var>, ..., <var>a<sub><var>m</var></sub></var>の人が情報を知っている。すべての番号の人に情報が伝わる最小の時間を求めよ。
-</P>
+<p>
+<var>n</var>人の人が横一列に並んでいる。
+各人には1から<var>n</var>までの番号が順番に割り当てられている。<br><br>
+人<var>i</var>は一単位時間で人<var>i</var>-1と人<var>i</var>+1に情報を伝達することができる。<br>
+ただし、<var>i</var>=1の人は<var>i</var>=2の人にしか情報を伝達できず、<var>i</var>=<var>n</var>の人は<var>i</var>=<var>n</var>-1の人にしか情報を伝達できない。<br><br>
 
+0秒時点で<var>m</var>人の<var>a<sub>1</sub></var>, <var>a<sub>2</sub></var>, ..., <var>a<sub>m</sub></var>の人が秘密の情報を手に入れた。<br>
+すべての人が秘密の情報を得ることのできる最小の時間を求めよ。
+</p>
 <h2>Input</h2>
 <p>入力は以下の形式で与えられる。</p>
 <pre>
