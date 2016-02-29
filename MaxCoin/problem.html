@@ -1,11 +1,20 @@
 <%@ page pageEncoding="UTF-8"%>
 
-<h1>Problem ?: </h1>
+<h1>Problem H: Max coin</h1>
 
 <h2>Problem</h2>
-<P>
-    
-</P>
+<p>
+Cocoさんは、銅貨を<var>x</var>枚、銀貨を<var>y</var>枚持っている。<br><br>
+
+    <var>n</var>人の硬貨交換人がいる。
+    それぞれの交換人<var>i</var>は、
+    <ul>
+	<li>Cocoさんの銅貨<var>a<sub>i</sub></var>と交換人の銀貨<var>b<sub>i</sub></var>枚</li>
+	<li>Cocoさんの銀貨<var>c<sub>i</sub></var>と交換人の金貨<var>d<sub>i</sub></var>枚</li>
+    </ul>
+    のどちらか1つの方法で1回だけ交換してくれる。<br><br>
+    この制約の下で、最終的に所持している金貨の枚数を最大化せよ。
+</p>
 
 <h2>Input</h2>
 <p>入力は以下の形式で与えられる。</p>
@@ -18,7 +27,7 @@
 <var>a<sub>n</sub></var> <var>b<sub>n</sub></var> <var>c<sub>n</sub></var> <var>d<sub>n</sub></var>
 </pre>
 <p>
-    
+    1行目に整数<var>n</var>が与えられる。2行目に整数<var>x</var>, <var>y</var>が空白区切りで与えられる。3行目から<var>n</var>+2行目に整数<var>a<sub>i</sub></var>, <var>b<sub>i</sub></var>, <var>c<sub>i</sub></var>, <var>d<sub>i</sub></var>が空白区切りで与えられる。
 </p>
 
 <h2>Constraints</h2>
@@ -26,13 +35,13 @@
 <ul>
     <li>1 &le; <var>n</var> &le; 100</li>
     <li>0 &le; <var>x</var>, <var>y</var> &le; 300</li>
-    <li>1 &le; <var>a<sub>i</sub></var>, <var>b<sub>i</sub></var>, <var>c<sub>i</sub></var>, <var>d<sub>i</sub></var></li>
+    <li>1 &le; <var>a<sub>i</sub></var>, <var>b<sub>i</sub></var>, <var>c<sub>i</sub></var>, <var>d<sub>i</sub></var> &le; 300</li>
     <li><var>a<sub>i</sub></var>, <var>b<sub>i</sub></var>, <var>c<sub>i</sub></var>, <var>d<sub>i</sub></var>の合計はそれぞれ300を超えない。</li>
 </ul>
 
 <h2>Output</h2>
 <p>
-    
+   最終的に所持している金貨の枚数の最大値を1行に出力する
 </p>
 
 <h2>Sample Input 1</h2>
