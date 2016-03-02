@@ -10,6 +10,6 @@ int main(){
     c=max((a-b)/2,c);
     b=a;
   }
-  cout<<max(c,n-b)<<endl;;
+  cout<<max(c,n-b)<<endl;
   return 0;
 }
