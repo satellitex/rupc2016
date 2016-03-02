@@ -64,7 +64,9 @@ def generate():
             dist = (circles[i].x - circles[j].x)**2 + (circles[i].y - circles[j].y)**2
             dist_min = min(dist_min, dist)
 
-        circles[i].r = random.randint(R_MIN, int(math.sqrt(dist_min))//2)
+        print(dist_min)
+
+        circles[i].r = random.randint(R_MIN, int(math.sqrt(dist_min)/2))
         while not checkCommon(circles, i):
             R_ORG = circles[i].r;
             circles[i].r = random.randint(R_MIN, R_ORG)
@@ -73,8 +75,7 @@ def generate():
 
     for i in range(N):
         f.write('{} {} {}\n'.format(circles[i].x, circles[i].y, circles[i].r))
-    f.close()
-
+    f.close() 
     print("C")
 
 def main():
@@ -82,6 +83,7 @@ def main():
     for i in range(NUMOFCASE):
         generate()
         seq += 1
+        print(i)
 
 if __name__ == '__main__':
     main()
