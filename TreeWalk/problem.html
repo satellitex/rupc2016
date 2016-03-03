@@ -38,10 +38,10 @@ P「座ってろ」<br><br>
 
 <h2>Problem</h2>
 <p>
-n個の神社とn-1本の道がある。神社には1~nの番号がついている。道は神社aiと神社biを繋ぎ、双方向に移動できる。それぞれの神社は、任意の神社から1本以上の道を経由して到達できる。また、任意の2つの神社の間の(迂回しない)経路は一意に定まる。
+    <var>n</var>個の神社と<var>n</var>-1本の道がある。神社には1~<var>n</var>の番号がついている。道は神社<var>a<sub>i</sub></var>と神社<var>b<sub>i</sub></var>を繋ぎ、双方向に移動できる。それぞれの神社は、任意の神社から1本以上の道を経由して到達できる。また、任意の2つの神社の間の(迂回しない)経路は一意に定まる。
 </p>
 <p>
-O型智絵里ちゃんと三村かな子ちゃんがそれぞれ神社uと神社vにいる。
+    O型智絵里ちゃんと四村かな子ちゃんがそれぞれ神社<var>u</var>と神社<var>v</var>にいる。
 </p>
 <p>
 今、2人を任意に移動させることを考える。ただし、移動とは、ある神社から1本の道を経由して別の神社に進むことである。
@@ -53,9 +53,9 @@ O型智絵里ちゃんと三村かな子ちゃんがそれぞれ神社uと神社
 ルール
 <ol>
   <li>2人合わせて全ての神社を訪問する。</li>
-  <li> 2人の移動数を同じにする。</li>
+  <li>2人の移動数を同じにする。</li>
   <li>1つの神社, 道は1人しか通れず、さらに1度しか通ることができない。</li>
-  <li>4. 神社u, vは既に訪れているものとし、通ることはできない。</li>
+  <li>神社<var>u</var>, <var>v</var>は既に訪れているものとし、通ることはできない。</li>
 </ol>
 </p>
 
@@ -80,13 +80,14 @@ O型智絵里ちゃんと三村かな子ちゃんがそれぞれ神社uと神社
 <ul>
     <li>2 &le; <var>n</var> &le; 10<sup>5</sup></li>
     <li>1 &le; <var>a<sub>i</sub></var>, <var>b<sub>i</sub></var>, <var>u</var>, <var>v</var> &le; <var>n</var></li>
-    <li><var>a<sub>i</sub></var> &ne; <var>a<sub>i</sub></var></li>
-    <li><var>u</var> &ne; <var>v</var></li>
+    <li><var>u</var> &ne; <var>v</var></li>    
+    <li><var>a<sub>i</sub></var> &ne; <var>b<sub>i</sub></var></li>
+    <li>(<var>a<sub>i</sub></var>, <var>b<sub>i</sub></var>) &ne; (<var>a<sub>j</sub></var>, <var>b<sub>j</sub></var>) (<var>i</var> &ne; <var>j</var>)</li>
 </ul>
 
 <h2>Output</h2>
 <p>
-    
+    ルールを満たすことができるかどうかを判定し、できる場合は"Yes"を、できない場合は"No"を出力する。
 </p>
 
 <h2>Sample Input 1</h2>
@@ -142,9 +143,9 @@ Yes
 4 5
 3 6
 </pre>
-<p><img src="./D4.png" alt="Sample Diagram 4" style="width: 30%;"></p>
 
 <h2>Sample Output 4</h2>
 <pre>
 No
 </pre>
+<p><img src="./D4.png" alt="Sample Diagram 4" style="width: 30%;"></p>
