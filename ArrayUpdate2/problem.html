@@ -1,144 +1,144 @@
 
 <%@ page pageEncoding="UTF-8"%>
 
-<h1>Problem ?: ArrayUpdate2</h1>
+<h1>Problem F: ArrayUpdate2</h1>
 
 <h2>Problem</h2>
 <p>
-���� <var>N</var> �A���� <var>a</var> �A����d�̓������� <var>A</var> ������B
-��������������閽�ߕ��� <var>M</var> ���͂ŗ^������̂ŁA�^����ꂽ������ <var>M</var> ��
-���� <var>A</var> �������������Ƃ��̐���� <var>K</var>���ڂ̒l�����߂Ȃ����B
+  項数 <var>N</var> 、初項 <var>a</var> 、公差dの等差数列 <var>A</var> がある。
+  数列を書き換える <var>M</var> 個の命令文が入力で与えられるので、与えられた順序で <var>M</var> 回
+  数列 <var>A</var> を書き換えたときの数列 <var>A</var> の <var>K</var>項目の値を求めなさい。
 </p>
 
 <p>
-<li>  
-<var>i</var> �Ԗڂ̖��ߕ���3�̐���<var> x<sub>i</sub> , y<sub>i</sub> , z<sub>i</sub> </var>�ŕ\�����B(1 &le; <var>i</var> &le; <var>M</var>)<br>
-</li>
+  <li>  
+    <var>i</var> 番目の命令文は3つの整数<var> x<sub>i</sub> , y<sub>i</sub> , z<sub>i</sub> </var>で与えられる。(1 &le; <var>i</var> &le; <var>M</var>)<br>
+  </li>
 
-<li>
-<var>x<sub>i</sub></var>��0�������ꍇ�A<var>y<sub>i</sub></var>���ڂ���
-<var>z<sub>i</sub></var>���ڂ܂ł̋�Ԃɂ����āA�l�̏����𔽓]����B<br>
-</li>
-<li>
-<var>x<sub>i</sub></var>��1�������ꍇ�A<var>y<sub>i</sub></var>���ڂ���
-<var>z<sub>i</sub></var>���ڂ܂ł̋�Ԃɂ����āA���ꂼ��̒l��1����������B <br>
-</li>
-<li>
-<var>x<sub>i</sub></var>��2�������ꍇ�A<var>y<sub>i</sub></var>���ڂ���
-<var>z<sub>i</sub></var>���ڂ܂ł̋�Ԃɂ����āA���ꂼ��̒l�𔼕��ɂ���B�i�����_�ȉ��͐؂�̂Ă�j<br>
-</li>
+  <li>
+    <var>x<sub>i</sub></var>が0だった場合、<var>y<sub>i</sub></var>項目から
+    <var>z<sub>i</sub></var>項目までの区間において、値の順序を反転する。<br>
+  </li>
+  <li>
+    <var>x<sub>i</sub></var>が1だった場合、<var>y<sub>i</sub></var>項目から
+    <var>z<sub>i</sub></var>項目までの区間において、それぞれの値を1増加させる。 <br>
+  </li>
+  <li>
+    <var>x<sub>i</sub></var>が2だった場合、<var>y<sub>i</sub></var>項目から
+    <var>z<sub>i</sub></var>項目までの区間において、それぞれの値を半分にする。（小数点以下は切り捨てる）<br>
+  </li>
 </p>
 
 <h2>Input</h2>
 <p>
-���͈͂ȉ��̌`���ŗ^������B
+  入力は以下の形式で与えられる。
 </p>
 
 <pre>
-<var>N</var>
-<var>a</var> <var>d</var>
-<var>M</var>
-<var>x<sub>1</sub></var> <var>y<sub>1</sub></var> <var>z<sub>1</sub></var>
-<var>x<sub>2</sub></var> <var>y<sub>2</sub></var> <var>z<sub>2</sub></var>
-...
-<var>x<sub>M</sub></var> <var>y<sub>M</sub></var> <var>z<sub>M</sub></var>
-<var>K</var>
+  <var>N</var>
+  <var>a</var> <var>d</var>
+  <var>M</var>
+  <var>x<sub>1</sub></var> <var>y<sub>1</sub></var> <var>z<sub>1</sub></var>
+  <var>x<sub>2</sub></var> <var>y<sub>2</sub></var> <var>z<sub>2</sub></var>
+  ...
+  <var>x<sub>M</sub></var> <var>y<sub>M</sub></var> <var>z<sub>M</sub></var>
+  <var>K</var>
 </pre>
 
 <p>
-1�s�ڂɁA1�̐��� <var>N</var> ���^������B
-2�s�ڂɁA2�̐��� <var>a</var> �� <var>d</var> ���󔒋�؂�ŗ^������B
-3�s�ڂɁA1�̐��� <var>M</var> ���^������B
+  1行目に、1つの整数 <var>N</var> が与えられる。
+  2行目に、2つの整数 <var>a</var> と <var>d</var> が空白区切りで与えられる。
+  3行目に、1つの整数 <var>M</var> が与えられる。
 
-4�s�ڂ���� <var>M</var> �s�̂��� <var>i</var> �s�ڂɂ� <var>i</var> �Ԗڂ̖��ߕ���\�� 3 �̐��� <var>x<sub>i</sub>, y<sub>i</sub>, z<sub>i</sub></var> ���󔒋�؂�ŗ^������B
+  4行目からの <var>M</var> 行のうち <var>i</var> 行目には <var>i</var> 番目の命令文を表す 3 つの整数 <var>x<sub>i</sub>, y<sub>i</sub>, z<sub>i</sub></var> が空白区切りで与えられる。
 
-�Ō�̍s�ɁA1�̐��� <var>K</var> ���^������B
+  最後の行に、1つの整数 <var>K</var> が与えられる。
 </p>
 
 <h2>Constraints</h2>
 <p>
-���͈͂ȉ��̐���𖞂����B
+  入力は以下の制約を満たす。
 </p>
 <ul>
-<li>2 &le; <var>N</var> &le; 200000</li>
-<li>1 &le; <var>a</var> &le; 5</li>
-<li>1 &le; <var>d</var> &le; 5</li>
-<li>1 &le; <var>M</var> &le; 200000</li>
-<li>0 &le; <var>x<sub>i</sub></var> &le; 2 (1 &le; <var>i</var> &le; <var>M</var>)</li>
-<li>1 &le; <var>y<sub>i</sub></var> &le; <var>N</var> (1 &le; <var>i</var> &le; <var>M</var>)</li>
-<li>1 &le; <var>z<sub>i</sub></var> &le; <var>N</var> (1 &le; <var>i</var> &le; <var>M</var>)</li>
-<li><var>y<sub>i</sub></var> &lt; <var>z<sub>i</sub></var> (1 &le; <var>i</var> &le; <var>M</var>)</li>
-<li>1 &le; <var>K</var> &le; <var>N</var></li>
+  <li>2 &le; <var>N</var> &le; 200000</li>
+  <li>1 &le; <var>a</var> &le; 5</li>
+  <li>1 &le; <var>d</var> &le; 5</li>
+  <li>1 &le; <var>M</var> &le; 200000</li>
+  <li>0 &le; <var>x<sub>i</sub></var> &le; 2 (1 &le; <var>i</var> &le; <var>M</var>)</li>
+  <li>1 &le; <var>y<sub>i</sub></var> &le; <var>N</var> (1 &le; <var>i</var> &le; <var>M</var>)</li>
+  <li>1 &le; <var>z<sub>i</sub></var> &le; <var>N</var> (1 &le; <var>i</var> &le; <var>M</var>)</li>
+  <li><var>y<sub>i</sub></var> &lt; <var>z<sub>i</sub></var> (1 &le; <var>i</var> &le; <var>M</var>)</li>
+  <li>1 &le; <var>K</var> &le; <var>N</var></li>
 </ul>
 
 <h2>Output</h2>
 <p>
-���͂ŗ^����ꂽ���ԂŐ���<var>A</var>��<var>M</var>��X�V�����Ƃ���<var>K</var>���ڂ��o�͂���B
+  入力で与えられた順番で数列<var>A</var>を<var>M</var>回更新したときの<var>K</var>項目を出力せよ。
 </p>
 
 <h2>Sample Input 1</h2>
 <pre>
-4
-2 1
-3
-0 1 2
-1 1 4
-2 2 4
-3
+  4
+  2 1
+  3
+  0 1 2
+  1 1 4
+  2 2 4
+  3
 </pre>
 
 <h2>Sample Output 1</h2>
 <pre>
-2
+  2
 </pre>
 
 <pre>
-{ 2 , 3 , 4 , 5 }
+  { 2 , 3 , 4 , 5 }
 
-��  0 1 2 ... 1���ڂ���2���ڂ܂ł̋�Ԃ̒l�̏����𔽓]����
+  ↓  0 1 2 ... 1項目から2項目までの区間の値の順序を反転する
 
-{ 3 , 2 , 4 , 5 }
+  { 3 , 2 , 4 , 5 }
 
-��  1 1 4 ... 1���ڂ���4���ڂ܂ł̋�Ԃ̒l�����ꂼ��1���₷
+  ↓  1 1 4 ... 1項目から4項目までの区間の値をそれぞれ1増やす
 
-{ 4 , 3 , 5 , 6 }
+  { 4 , 3 , 5 , 6 }
 
-�� 2 2 4 ... 2���ڂ���4���ڂ܂ł̋�Ԃ̒l�����ꂼ�ꔼ���ɂ���i�����_�ȉ��؂�̂Ă�j
+  ↓ 2 2 4 ... 2項目から4項目までの区間の値をそれぞれ半分にする（小数点以下切り捨てる）
 
-{ 3 , 1 , 2 , 3 }
+  { 3 , 1 , 2 , 3 }
 
-�����3���ڂ̒l��2�ł���B
+  よって3項目の値は2である。
 </pre>
 
 <h2>Sample Input 2</h2>
 <pre>
-5
-1 2
-3
-1 2 3
-2 3 5
-0 1 5
-1
+  5
+  1 2
+  3
+  1 2 3
+  2 3 5
+  0 1 5
+  1
 </pre>
 
 <h2>Sample Output 2</h2>
 <pre>
-4
+  4
 </pre>
 <pre>
-{ 1 , 3 , 5 , 7 , 9 }
+  { 1 , 3 , 5 , 7 , 9 }
 
-��  1 2 3 ... 2���ڂ���3���ڂ܂ł̋�Ԃ̒l�����ꂼ��1���₷
+  ↓  1 2 3 ... 2項目から3項目までの区間の値をそれぞれ1増やす
 
-{ 1 , 4 , 6 , 7 , 9 }
+  { 1 , 4 , 6 , 7 , 9 }
 
-�� 2 3 5 ... 3���ڂ���5���ڂ܂ł̋�Ԃ̒l�����ꂼ�ꔼ���ɂ���i�����_�ȉ��؂�̂Ă�j
+  ↓ 2 3 5 ... 3項目から5項目までの区間の値をそれぞれ半分にする（小数点以下切り捨てる）
 
-{ 1 , 4 , 3 , 3 , 4 }
+  { 1 , 4 , 3 , 3 , 4 }
 
-��  0 1 5 ... 1���ڂ���5���ڂ܂ł̋�Ԃ̒l�̏����𔽓]����
+  ↓  0 1 5 ... 1項目から5項目までの区間の値の順序を反転する
 
-{ 4 , 3 , 3 , 4 , 1 }
+  { 4 , 3 , 3 , 4 , 1 }
 
-�����1���ڂ̒l��4�ł���B
+  よって1項目の値は4である。
 </pre>

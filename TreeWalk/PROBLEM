@@ -6,6 +6,6 @@
 ##   id: The problem ID (typically starts from A) used to order problems.
 ##   time_limit: The time limit of this problem in seconds.
 problem(title = "TreeWalk",
-        id = "NON",
+        id = "D",
         time_limit = 1.0,
         )

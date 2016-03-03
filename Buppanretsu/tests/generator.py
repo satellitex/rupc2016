@@ -14,7 +14,7 @@ seq = 0
 def generate():
   global seq
 
-  filename = '50-random{:02d}.in'.format(seq)
+  filename = '50_random_{:02d}.in'.format(seq)
 
   f = open(filename, 'w')
   h = random.randint(H_MIN, H_MAX)
