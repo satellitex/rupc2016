@@ -70,7 +70,7 @@ void check() {
 
   // ai != bi
   for (int i = 0; i < n - 1; ++i) {
-    ensuref(a[i] != b[i], "Input 'a[i]' and 'b[i]' must be different");
+    ensuref(a[i] < b[i], "Input 'a[i]' and 'b[i]' must be 'a[i] < b[i]'");
   }
 
   // 木であるかどうか

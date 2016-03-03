@@ -40,7 +40,11 @@ int main(int argc, char *argv[])
         }
         
         for (int i = 0; i < n-1; i++) {
-            of << node_num[a[i]] << " " << node_num[b[i]] << endl;
+            int aa = node_num[a[i]], bb = node_num[b[i]];
+            if (aa >= bb) {
+                swap(aa, bb);
+            }
+            of << aa << " " << bb << endl;
         }
         
         of.close();
