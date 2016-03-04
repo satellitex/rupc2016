@@ -1,0 +1,104 @@
+<%@ page pageEncoding="UTF-8"%>
+
+<h1>Problem L: String in String</h1>
+
+<h2>Problem</h2>
+<p>
+文字列<var>S</var>と<var>Q</var>個のクエリが与えられる。<br>
+各クエリには閉区間[<var>l</var>,<var>r</var>]と文字列<var>M</var>が与えられる。
+<var>S</var>の<var>l</var>文字目から<var>r</var>文字目までの部分文字列の中に文字列<var>M</var>はいくつ存在するかクエリで与えられら順に出力せよ。
+</p>
+<h2>Input</h2>
+<p>入力は以下の形式で与えられる。</p>
+<pre>
+<var>S</var> <var>Q</var>
+<var>l<sub>0</sub></var> <var>r<sub>0</sub></var> <var>M<sub>0</sub></var>
+<var>l<sub>1</sub></var> <var>r<sub>1</sub></var> <var>M<sub>1</sub></var>
+.
+.
+.
+<var>l<sub><var>Q</var>-1</sub></var> <var>r<sub><var>Q</var>-1</sub></var> <var>M<sub><var>Q</var>-1</sub></var>
+</pre>
+<p>
+  1行目に文字列<var>S</var>とクエリの数<var>Q</var>が空白区切りで与えられる。<br>
+  続く<var>Q</var>行に整数<var>l<sub>i</sub></var>, <var>r<sub>i</sub></var>, <var>M<sub>i</sub></var>が空白区切りで与えられる。
+</p>
+
+<h2>Constraints</h2>
+<p>入力は以下の条件を満たす。</p>
+<ul>
+<li>1 &le;| <var>S</var> | &le; 100000</li>
+<li>1 &le; <var>Q</var> &le; 100000</li>
+<li>1 &le; |<var>M</var>| &le; 100000</li>
+<li>0 &le; <var>l</var> &le; <var>r</var> &lt; |<var>S</var>|</li>
+<li>文字はすべて英小文字である。</li>
+<li>文字列<var>M</var>の合計文字数は2000000を越えない。</li>
+</ul>
+
+<h2>Output</h2>
+<p>
+一行ごとに改行区切りで各クエリ対する答えを出力せよ
+</p>
+
+<h2>Sample Input 1</h2>
+<pre>
+rupcrupc 5
+0 3 rupc
+0 7 rupc
+2 7 ru
+2 7 pc
+1 5 u
+</pre>
+
+<h2>Sample Output 1</h2>
+<pre>
+1
+2
+1
+2
+2
+</pre>
+
+<h2>Sample Input 2</h2>
+<pre>
+abatagaadbura 8
+0 6 a
+6 12 a
+0 6 aa
+0 3 a
+3 5 a
+5 9 a
+1 8 b
+1 12 b
+</pre>
+
+<h2>Sample Output 2</h2>
+<pre>
+4
+3
+0
+2
+1
+2
+1
+2
+</pre>
+
+<h2>Sample Input 3</h2>
+<pre>
+aaaaaaaaaa 5
+0 9 aaa
+0 9 aa
+5 9 aaaa
+2 8 aa
+1 2 a
+</pre>
+
+<h2>Sample Output 3</h2>
+<pre>
+8
+9
+2
+6
+2
+</pre>
