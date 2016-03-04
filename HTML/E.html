@@ -4,28 +4,28 @@
 <h2>Problem</h2>
 
 <p>
-<var>n</var> �~ <var>n</var> �~ <var>n</var>�̗����̂̃��[�r�b�N�L���[�u�^�̃_���W�����ɂ���Ă����B<br>
-����(<var>x<sub>1</sub></var>,<var>y<sub>1</sub></var>,<var>z<sub>1</sub></var>)�̕����ɂ���B<br>
-���(<var>x<sub>2</sub></var>,<var>y<sub>2</sub></var>,<var>z<sub>2</sub></var>)�̕����ɂ���B<br>
-�אڂ��Ă���O�㍶�E�㉺�̕����ɒP�ʎ��Ԃňړ����邱�Ƃ��ł���B<br>
-�e�����ɂ�6�̃{�^��������A���ꂼ��̃{�^�����������Ƃɂ��A�P�ʎ��ԂŃ��[�r�b�N�L���[�u�̂悤�ɂ��̕����̌��݂̍��W��<br>
+<var>n</var> × <var>n</var> × <var>n</var>の立方体のルービックキューブ型のダンジョンにやってきた。<br>
+現在(<var>x<sub>1</sub></var>,<var>y<sub>1</sub></var>,<var>z<sub>1</sub></var>)の部屋にいる。<br>
+宝は(<var>x<sub>2</sub></var>,<var>y<sub>2</sub></var>,<var>z<sub>2</sub></var>)の部屋にある。<br>
+隣接している前後左右上下の部屋に単位時間で移動することができる。<br>
+各部屋には6つのボタンがあり、それぞれのボタンを押すことにより、単位時間でルービックキューブのようにその部屋の現在の座標と<br>
 <left>
 	<img width="200" src="image/E1.png"><br>
 </left>
-<li>���W<var>x</var>�������S�Ă̕��������v(�����v)�����90�x��]���邱�Ƃ��ł���</li>
+<li>座標<var>x</var>が同じ全ての部屋を時計(反時計)周りに90度回転することができる</li>
 <left>
 	<img width="360" src="image/E2.png"><br>
 </left>
-<li>���W<var>y</var>�������S�Ă̕��������v(�����v)�����90�x��]���邱�Ƃ��ł���</li>
+<li>座標<var>y</var>が同じ全ての部屋を時計(反時計)周りに90度回転することができる</li>
 <left>
 	<img width="360" src="image/E3.png"><br>
 </left>
-<li>���W<var>z</var>�������S�Ă̕��������v(�����v)�����90�x��]���邱�Ƃ��ł���</li>
+<li>座標<var>z</var>が同じ全ての部屋を時計(反時計)周りに90度回転することができる</li>
 <left>
 	<img width="360" src="image/E4.png"><br>
 </left>
-��]���Ă���r���ő��̕����Ɉړ����邱�Ƃ͂ł��Ȃ��B<br>
-��̂��镔���܂ōŒZ�ňړ������ꍇ�̎��Ԃ����߂�B<br>
+回転している途中で他の部屋に移動することはできない。<br>
+宝のある部屋まで最短で移動した場合の時間を求めよ。<br>
 </p>
 
 <h2>Input</h2>
@@ -37,13 +37,13 @@
 </pre>
 
 <p>
-���͂͑S�Đ����ŗ^������B<br>
-1�s�ڂ�<var>n</var>���^������B<br>
-2�s�ڂɌ��ݒn�̍��W(<var>x<sub>1</sub></var>,<var>y<sub>1</sub></var>,<var>z<sub>1</sub></var>)�A3�s�ڂɕ�̂��镔���̍��W(<var>x<sub>2</sub></var>,<var>y<sub>2</sub></var>,<var>z<sub>2</sub></var>)���󔒋�؂�ŗ^������B
+入力は全て整数で与えられる。<br>
+1行目に<var>n</var>が与えられる。<br>
+2行目に現在地の座標(<var>x<sub>1</sub></var>,<var>y<sub>1</sub></var>,<var>z<sub>1</sub></var>)、3行目に宝のある部屋の座標(<var>x<sub>2</sub></var>,<var>y<sub>2</sub></var>,<var>z<sub>2</sub></var>)が空白区切りで与えられる。
 </p>
 
 <h2>Constraints</h2>
-���͈͂ȉ��̏����𖞂����B
+入力は以下の条件を満たす。
 <ul>
   <li>2 &le; n &le; 10<sup>5</sup></li>
   <li>0 &le; <var>x<sub>1</sub></var>,<var>y<sub>1</sub></var>,<var>z<sub>1</sub></var>,<var>x<sub>2</sub></var>,<var>y<sub>2</sub></var>,<var>z<sub>2</sub></var> &le; <var>n</var>&minus;1</li>
@@ -52,7 +52,7 @@
 
 <h2>Output</h2>
 <p>
-�ŒZ�̎��Ԃ��o�͂���B
+最短の時間を出力せよ。
 </p>
 
 <h2>Sample Input 1</h2>
@@ -80,5 +80,5 @@
 </pre>
 
 <p>
-��]������ƕ���ړ����Ă��܂��̂ŁA��]�������Ɉړ�����B
+回転させると宝も移動してしまうので、回転させずに移動する。
 </p>

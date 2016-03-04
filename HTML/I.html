@@ -4,14 +4,14 @@
 <h2>Problem</h2>
 
 <p>
-�Ƃ���F���ł́A2�����̊i�q�_���<var>n</var>�̐������݂��A�F���l�B��Reflection Warp Machine���g���A���Ԃ��ړ����Ă���B<br>
-���̑��u�́A�C�ӂ̈ʒu�A�p�x�Œ������������Ƃ��ł���B<br>
-���̒�����Ώ̎��Ƃ��āA���݂�����W������Ώ̂̍��W�Ɉړ����邱�Ƃ��ł���B<br>
-�������A�������݂��Ȃ����W�Ɉړ����邱�Ƃ͂ł��Ȃ��B<br>
-��x�����������͉��x�ł����p�ł���B<br>
-���݁A(<var>x<sub>0</sub></var>,<var>y<sub>0</sub></var>)�̐��ɂ��邠��F���l�͂��ׂĂ̐���K�ꂽ���ƍl���Ă���B<br>
-���͍D���ȏ��ԂɖK��邱�Ƃ��ł���B<br>
-���ׂĂ̐���K���̂ɍŏ��ŉ��{�̒����������K�v�����邩���߂�B
+とある宇宙では、2次元の格子点上に<var>n</var>個の星が存在し、宇宙人達はReflection Warp Machineを使い、星間を移動している。<br>
+この装置は、任意の位置、角度で直線を引くことができる。<br>
+この直線を対称軸として、現在いる座標から線対称の座標に移動することができる。<br>
+ただし、星が存在しない座標に移動することはできない。<br>
+一度引いた直線は何度でも利用できる。<br>
+現在、(<var>x<sub>0</sub></var>,<var>y<sub>0</sub></var>)の星にいるある宇宙人はすべての星を訪れたいと考えている。<br>
+星は好きな順番に訪れることができる。<br>
+すべての星を訪れるのに最小で何本の直線を引く必要があるか求めよ。
 </p>
 
 <h2>Input</h2>
@@ -24,13 +24,13 @@
 </pre>
 
 <p>
-���͂͑S�Đ����ŗ^������B<br>
-1�s�ڂ�<var>n</var>���^������B<br>
-2�s�ڈȍ~<var>n</var>�s��<var>i</var>�Ԗڂ̐��̍��W(<var>x<sub>i</sub></var>,<var>y<sub>i</sub></var>)���󔒋�؂�ŗ^������B
+入力は全て整数で与えられる。<br>
+1行目に<var>n</var>が与えられる。<br>
+2行目以降<var>n</var>行に<var>i</var>番目の星の座標(<var>x<sub>i</sub></var>,<var>y<sub>i</sub></var>)が空白区切りで与えられる。
 </p>
 
 <h2>Constraints</h2>
-���͈͂ȉ��̏����𖞂����B
+入力は以下の条件を満たす。
 <ul>
   <li>2 &le; <var>n</var> &le; 8</li>
   <li>&minus;100 &le; <var>x<sub>i</sub></var>,<var>y<sub>i</sub></var> &le; 100</li>
@@ -39,7 +39,7 @@
 
 <h2>Output</h2>
 <p>
-���ׂĂ̐���K��邽�߂ɕK�v�ȍŏ��̒����̐���1�s�ɏo�͂���B
+すべての星を訪れるために必要な最小の直線の数を1行に出力せよ。
 </p>
 
 <h2>Sample Input 1</h2>
