@@ -4,9 +4,9 @@
 <h2>Problem</h2>
 
 <p>
-<var>n</var>�̗v�f��������<var>A</var>�A<var>m</var>�̗v�f��������<var>B</var>�A���ꂼ�ꂪ����<var>l<sub>a</sub></var>,<var>r<sub>a</sub></var>,<var>l<sub>b</sub></var>,<var>r<sub>b</sub></var>����Ȃ�<var>q</var>�̃N�G�����^������B<br>
-�e�N�G���ɂ��āA<br>
-����<var>A</var>��[<var>l<sub>a</sub></var>,<var>r<sub>a</sub></var>]��S�đ��������Ɛ���<var>B</var>��[<var>l<sub>b</sub></var>,<var>r<sub>b</sub></var>]��S�đ��������̍��̐�Βl��<var>c</var>�ɂȂ�<var>l<sub>a</sub></var>,<var>r<sub>a</sub></var>,<var>l<sub>b</sub></var>,<var>r<sub>b</sub></var> (0 &le; <var>l<sub>a</sub></var> &le; <var>r<sub>a</sub></var> &le; <var>n</var>&minus;1, 0 &le; <var>l<sub>b</sub></var> &le; <var>r<sub>b</sub></var> &le; <var>m</var>&minus;1, �z��̔ԍ���0�Ԃ���n�܂�) �̑g�ݍ��킹�̐������߂�B
+<var>n</var>個の要素を持つ数列<var>A</var>、<var>m</var>個の要素を持つ数列<var>B</var>、それぞれが整数<var>l<sub>a</sub></var>,<var>r<sub>a</sub></var>,<var>l<sub>b</sub></var>,<var>r<sub>b</sub></var>からなる<var>q</var>個のクエリが与えられる。<br>
+各クエリについて、<br>
+数列<var>A</var>の[<var>l<sub>a</sub></var>,<var>r<sub>a</sub></var>]を全て足した数と数列<var>B</var>の[<var>l<sub>b</sub></var>,<var>r<sub>b</sub></var>]を全て足した数の差の絶対値が<var>c</var>になる<var>l<sub>a</sub></var>,<var>r<sub>a</sub></var>,<var>l<sub>b</sub></var>,<var>r<sub>b</sub></var> (0 &le; <var>l<sub>a</sub></var> &le; <var>r<sub>a</sub></var> &le; <var>n</var>&minus;1, 0 &le; <var>l<sub>b</sub></var> &le; <var>r<sub>b</sub></var> &le; <var>m</var>&minus;1, 配列の番号は0番から始まる) の組み合わせの数を求めよ。
 </p>
 
 <h2>Input</h2>
@@ -22,24 +22,24 @@
 </pre>
 
 <p>
-���͂͑S�Đ����ŗ^������B<br>
-1�s�ڂ�<var>n</var>��<var>m</var>�ƃN�G����<var>q</var>���^������B<br>
-2�s�ڂɐ���<var>A</var>�̗v�f�A3�s�ڂɐ���<var>B</var>�̗v�f���󔒋�؂�ŗ^������B<br>
-4�s�ڂ���<var>q</var>�s�Ɋe�N�G����<var>c<sub>i</sub></var>���^������B
+入力は全て整数で与えられる。<br>
+1行目に<var>n</var>と<var>m</var>とクエリ数<var>q</var>が与えられる。<br>
+2行目に数列<var>A</var>の要素、3行目に数列<var>B</var>の要素が空白区切りで与えられる。<br>
+4行目から<var>q</var>行に各クエリの<var>c<sub>i</sub></var>が与えられる。
 </p>
 
 <h2>Constraints</h2>
-���͈͂ȉ��̏����𖞂����B
+入力は以下の条件を満たす。
 <ul>
-  <li>1 &le; <var>n</var>, <var>m</var> &le; 4�~10<sup>4</sup></li>
+  <li>1 &le; <var>n</var>, <var>m</var> &le; 4×10<sup>4</sup></li>
   <li>1 &le; <var>q</var> &le; 10<sup>5</sup></li>
   <li>1 &le; <var>a<sub>i</sub></var>, <var>b<sub>i</sub></var> &le; 5</li>
-  <li>0 &le; <var>c<sub>i</sub></var> &le; 2�~10<sup>5</sup></li>
+  <li>0 &le; <var>c<sub>i</sub></var> &le; 2×10<sup>5</sup></li>
 </ul>
 
 <h2>Output</h2>
 <p>
-<var>q</var>�s�Ɋe�N�G���̑g�ݍ��킹�̐����o�͂���B
+<var>q</var>行に各クエリの組み合わせの数を出力せよ。
 </p>
 
 <h2>Sample Input 1</h2>
